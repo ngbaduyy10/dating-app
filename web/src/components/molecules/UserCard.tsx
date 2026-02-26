@@ -38,7 +38,7 @@ export default function UserCard({ user, isMatch = false }: UserCardProps) {
         {isMatch && (
           <div onClick={(event) => event.stopPropagation()}>
             <CommonButton
-              href={`/schedule/${user.id}`}
+              href={`/schedule/${user.match_id}`}
               className="h-8 w-8 p-0 flex-shrink-0"
             >
               <CalendarPlus className="w-4 h-4" />

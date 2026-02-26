@@ -12,7 +12,7 @@ interface LikeButtonProps {
 }
 
 export default function LikeButton({ user }: LikeButtonProps) {
-  const [isLiked, setIsLiked] = useState(Boolean(user.isLiked));
+  const [isLiked, setIsLiked] = useState(Boolean(user.is_liked));
   const [isLoading, setIsLoading] = useState(false);
 
   const handleLike = async () => {

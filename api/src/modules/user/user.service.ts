@@ -65,7 +65,7 @@ export class UserService {
   async getUserById(
     userId: string,
     currentUserId: string,
-  ): Promise<UserEntity & { isLiked: boolean }> {
+  ): Promise<UserEntity & { is_liked: boolean }> {
     const user = await this.userRepository.findOne({ where: { id: userId } });
 
     if (!user) {
@@ -81,7 +81,7 @@ export class UserService {
 
     return {
       ...user,
-      isLiked,
+      is_liked: isLiked,
     };
   }
 

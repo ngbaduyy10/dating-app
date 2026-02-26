@@ -7,5 +7,6 @@ export default interface User extends Base {
   last_name: string;
   gender: Gender;
   age: number;
-  isLiked?: boolean;
+  is_liked?: boolean;
+  match_id?: string;
 }
