@@ -8,3 +8,9 @@ export enum MatchStatus {
   SCHEDULED = 'scheduled',
   NO_COMMON_SLOT = 'no_common_slot',
 }
+
+export enum AvailabilityBlock {
+  MORNING = 'morning',
+  AFTERNOON = 'afternoon',
+  EVENING = 'evening',
+}

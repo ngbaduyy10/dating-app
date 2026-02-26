@@ -8,7 +8,7 @@ import {
 } from 'typeorm';
 import { BaseEntity } from './base.entity';
 import { UserEntity } from './user.entity';
-import { MatchStatus } from '@/utils/constant';
+import { AvailabilityBlock, MatchStatus } from '@/utils/constant';
 import { AvailabilityEntity } from './availability.entity';
 
 @Entity('matches')
@@ -23,11 +23,11 @@ export class MatchEntity extends BaseEntity {
   @Column({ type: 'enum', enum: MatchStatus, default: MatchStatus.MATCHED })
   status: MatchStatus;
 
-  @Column({ type: 'timestamptz', nullable: true })
-  first_common_start_at?: Date;
+  @Column({ type: 'date', nullable: true })
+  first_common_date?: string;
 
-  @Column({ type: 'timestamptz', nullable: true })
-  first_common_end_at?: Date;
+  @Column({ type: 'enum', enum: AvailabilityBlock, nullable: true })
+  first_common_block_type?: AvailabilityBlock;
 
   @ManyToOne(() => UserEntity, (user) => user.matches_as_a, { onDelete: 'CASCADE' })
   @JoinColumn({ name: 'user_a_id' })

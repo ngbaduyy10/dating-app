@@ -1,16 +1,17 @@
 import {
-  Check,
   Column,
   Entity,
   JoinColumn,
   ManyToOne,
+  Unique,
 } from 'typeorm';
 import { BaseEntity } from './base.entity';
 import { MatchEntity } from './match.entity';
 import { UserEntity } from './user.entity';
+import { AvailabilityBlock } from '@/utils/constant';
 
 @Entity('availabilities')
-@Check(`"start_at" < "end_at"`)
+@Unique(['match_id', 'user_id', 'date', 'block_type'])
 export class AvailabilityEntity extends BaseEntity {
   @Column({ type: 'uuid' })
   match_id: string;
@@ -18,11 +19,11 @@ export class AvailabilityEntity extends BaseEntity {
   @Column({ type: 'uuid' })
   user_id: string;
 
-  @Column({ type: 'timestamptz' })
-  start_at: Date;
+  @Column({ type: 'date' })
+  date: string;
 
-  @Column({ type: 'timestamptz' })
-  end_at: Date;
+  @Column({ type: 'enum', enum: AvailabilityBlock })
+  block_type: AvailabilityBlock;
 
   @ManyToOne(() => MatchEntity, (match) => match.availabilities, { onDelete: 'CASCADE' })
   @JoinColumn({ name: 'match_id' })
