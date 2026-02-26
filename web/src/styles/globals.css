@@ -56,7 +56,7 @@
   --popover-foreground: oklch(0.145 0 0);
   --primary: #f2b855;
   --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
+  --secondary: #fcf0dc;
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
@@ -117,7 +117,7 @@
 
 @layer base {
   body {
-    @apply font-main;
+    @apply font-main bg-background;
   }
   .flex-center {
     @apply flex items-center justify-center;

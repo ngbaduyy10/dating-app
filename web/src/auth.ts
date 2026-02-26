@@ -10,7 +10,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         password: {},
       },
       authorize: async (credentials) => {
-        console.log(credentials);
         const response = await fetchApi("/auth/login", {
           method: "POST",
           body: {

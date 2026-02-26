@@ -8,6 +8,7 @@ import { JwtModule } from '@nestjs/jwt';
 import { JwtAuthGuard } from './guards/jwt-auth.guard';
 import { JwtStrategy } from './modules/auth/strategies/jwt.strategy';
 import { UserModule } from './modules/user/user.module';
+import { MatchModule } from './modules/match/match.module';
 
 @Module({
   providers: [
@@ -51,6 +52,7 @@ import { UserModule } from './modules/user/user.module';
     }),
     AuthModule,
     UserModule,
+    MatchModule,
   ],
 })
 export class AppModule {}
