@@ -71,7 +71,7 @@ Hệ thống tách 2 phần:
 
 Dữ liệu lưu bằng PostgreSQL qua TypeORM với 4 bảng chính: `users`, `likes`, `matches`, `availabilities`.
 
-Luồng chính: user đăng nhập -> lấy JWT -> frontend gọi API kèm token -> backend xử lý và cập nhật DB -> frontend render lại data mới.
+Luồng chính: sau khi đăng nhập, người dùng vào trang Home để xem danh sách tài khoản được gợi ý (recommend users). Từ đây, người dùng chọn một profile để xem chi tiết và bấm thích. Khi cả hai cùng thích nhau, cặp đó sẽ xuất hiện trong trang Matches.Tại Matches, người dùng có thể bấm vào icon lịch để chọn các khung giờ rảnh. Nếu hai bên có khung giờ trùng nhau, lịch hẹn sẽ được hiển thị ở trang Schedule và vẫn có thể chỉnh sửa lại khung giờ khi cần.
 
 ### 2) Bạn lưu data bằng gì (local storage / backend / database)
 
